@@ -12,9 +12,10 @@ const socialData = [
 ];
 
 export default function BasicContact() {
+    const email = process.env.EMAIL;
     return (
         <div className="flex flex-col space-y-4">
-            <EmailButton></EmailButton>
+            <EmailButton email={email} />
             {socialData.map((item, index) => (
                 <ExternalButton key={index} href={item.href}>
                     {item.title}
