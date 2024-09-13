@@ -2,7 +2,7 @@ import "./globals.css";
 import Header from "./components/Header";
 
 export const metadata = {
-    title: "Rémi Forte",
+    title: "Rémi Forte ",
 };
 
 export default function RootLayout({ children }) {

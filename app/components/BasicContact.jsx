@@ -2,7 +2,7 @@ import EmailButton from "./EmailButton";
 import ExternalButton from "./ExternalButton";
 
 const socialData = [
-    { title: "Resume", href: "https://www.resume.rmfrt.com" },
+    { title: "Resume", href: "https://resume.rmfrt.com" },
     { title: "Instagram", href: "https://www.instagram.com/rmfrt/" },
     { title: "LinkedIn", href: "https://www.linkedin.com/in/rmfrt/" },
     { title: "Mastodon", href: "https://mastodon.design/@rmfrt" },
