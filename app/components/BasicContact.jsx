@@ -9,7 +9,7 @@ const socialData = [
     { title: "Mastodon", href: "https://mastodon.design/@rmfrt" },
     { title: "X", href: "https://twitter.com/rmfrt" },
     { title: "Shop", href: "https://www.etsy.com/shop/rmfrt/" },
-    { title: "NFT", href: "https://objkt.com/profile/rmfrt/created" },
+    { title: "Objkt", href: "https://objkt.com/profile/rmfrt/created" },
 ];
 
 export default function BasicContact() {
