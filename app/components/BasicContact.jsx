@@ -3,6 +3,7 @@ import ExternalButton from "./ExternalButton";
 
 const socialData = [
     { title: "Resume", href: "https://resume.rmfrt.com" },
+    { title: "Buy Me a Coffee", href: "https://buymeacoffee.com/rmfrt" },
     { title: "Bluesky", href: "https://bsky.app/profile/rmfrt.com" },
     { title: "Instagram", href: "https://www.instagram.com/rmfrt/" },
     { title: "LinkedIn", href: "https://www.linkedin.com/in/rmfrt/" },
