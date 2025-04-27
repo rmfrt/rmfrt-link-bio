@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rmfrt.com
+
+# Sitemaps
+Sitemap: https://rmfrt.com/sitemap.xml
