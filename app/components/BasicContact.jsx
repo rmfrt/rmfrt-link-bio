@@ -4,13 +4,9 @@ import ExternalButton from "./ExternalButton";
 const socialData = [
     { title: "Resume", href: "https://resume.rmfrt.com" },
     { title: "TypoLyon", href: "https://www.typolyon.fr/" },
-    { title: "Buy Me a Coffee", href: "https://buymeacoffee.com/rmfrt" },
     { title: "Bluesky", href: "https://bsky.app/profile/rmfrt.com" },
     { title: "Instagram", href: "https://www.instagram.com/rmfrt/" },
     { title: "LinkedIn", href: "https://www.linkedin.com/in/rmfrt/" },
-    { title: "Newsletter", href: "https://rmfrt.substack.com/" },
-    { title: "Shop", href: "https://www.etsy.com/shop/rmfrt/" },
-    { title: "Objkt", href: "https://objkt.com/profile/rmfrt/created" },
 ];
 
 export default function BasicContact() {
