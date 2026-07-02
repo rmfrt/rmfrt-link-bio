@@ -1,0 +1,21 @@
+---
+import { siteNoindex } from "../data/site";
+
+const umamiScriptUrl = import.meta.env.PUBLIC_UMAMI_SCRIPT_URL;
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
+const umamiDomains = import.meta.env.PUBLIC_UMAMI_DOMAINS;
+
+const shouldTrack = !siteNoindex && Boolean(umamiScriptUrl && umamiWebsiteId);
+---
+
+{
+  shouldTrack && (
+    <script
+      is:inline
+      defer
+      src={umamiScriptUrl}
+      data-website-id={umamiWebsiteId}
+      data-domains={umamiDomains || undefined}
+    />
+  )
+}

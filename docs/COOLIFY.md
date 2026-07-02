@@ -23,6 +23,9 @@ rmfrt-site-prod
   env:
     PUBLIC_SITE_URL=https://rmfrt.com
     PUBLIC_NOINDEX=false
+    PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
+    PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
+    PUBLIC_UMAMI_DOMAINS=rmfrt.com
 ```
 
 ## Production actuelle
@@ -75,3 +78,13 @@ https://analytics.rmfrt.xyz
 Chaque site public devra avoir sa propre entree `Website` dans Umami et donc son
 propre `data-website-id`. Ne pas activer le tracking sur
 `preview.rmfrt.xyz` ni sur un environnement avec `PUBLIC_NOINDEX=true`.
+
+Site Umami cree pour la future production :
+
+```txt
+name: rmfrt.com
+domain: rmfrt.com
+website id: bd1aca48-e028-47bc-98c5-5cea77207e2e
+script: https://analytics.rmfrt.xyz/script.js
+domains: rmfrt.com
+```

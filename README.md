@@ -21,3 +21,12 @@ PUBLIC_NOINDEX=true
 
 `PUBLIC_NOINDEX` should stay `true` for preview deployments and be set to
 `false` only for the final production domain.
+
+Production analytics is prepared for Umami but disabled unless all required
+variables are set and `PUBLIC_NOINDEX=false`.
+
+```txt
+PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
+PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
+PUBLIC_UMAMI_DOMAINS=rmfrt.com
+```

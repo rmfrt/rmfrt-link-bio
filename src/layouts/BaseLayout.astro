@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "../components/Analytics.astro";
 import { absoluteUrl, siteIdentity, siteNoindex, type Locale } from "../data/site";
 
 type AlternatePaths = Partial<Record<Locale | "x-default", string>>;
@@ -56,6 +57,7 @@ const hasAlternateOgLocale = locale === "fr" ? Boolean(alternatePaths.en) : Bool
     <meta name="twitter:image" content={imageUrl} />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     {refreshPath && <meta http-equiv="refresh" content={`0;url=${refreshPath}`} />}
+    <Analytics />
   </head>
   <body class="bg-neutral-950 text-base text-neutral-50">
     <slot />
