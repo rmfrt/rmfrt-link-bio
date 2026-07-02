@@ -1,7 +1,7 @@
 # rmfrt-site
 
 Minimal Astro/Tailwind version of the personal site, currently targeting
-`https://rmfrt.xyz` for testing before replacing `rmfrt.com`.
+`https://preview.rmfrt.xyz` for preview before replacing `rmfrt.com`.
 
 ## Commands
 
@@ -15,7 +15,7 @@ npm run preview
 ## Environment
 
 ```txt
-PUBLIC_SITE_URL=https://rmfrt.xyz
+PUBLIC_SITE_URL=https://preview.rmfrt.xyz
 PUBLIC_CONTACT_EMAIL=
 ```
 

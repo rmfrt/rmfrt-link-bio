@@ -3,7 +3,7 @@ export type Locale = "fr" | "en";
 export const locales: Locale[] = ["fr", "en"];
 export const defaultLocale: Locale = "fr";
 
-export const siteUrl = (import.meta.env.PUBLIC_SITE_URL || "https://rmfrt.xyz").replace(/\/+$/, "");
+export const siteUrl = (import.meta.env.PUBLIC_SITE_URL || "https://preview.rmfrt.xyz").replace(/\/+$/, "");
 
 export function absoluteUrl(path: string): string {
   return new URL(path, `${siteUrl}/`).toString();

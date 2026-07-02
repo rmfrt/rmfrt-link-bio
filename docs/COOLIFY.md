@@ -1,18 +1,27 @@
 # Coolify
 
-## Environnement de preview/staging
+## Applications cible
 
-`rmfrt.xyz` sert d'environnement de preview pour valider la v2 sans toucher aux
-domaines publics actuels. Ce n'est pas l'environnement de production final.
+`preview.rmfrt.xyz` sert d'environnement de preview pour valider la v2 sans
+toucher aux domaines publics actuels.
 
 ```txt
-rmfrt-xyz
-  domaine: https://rmfrt.xyz
+rmfrt-site-preview
+  domaine: https://preview.rmfrt.xyz
   branche: astro-v2
   build pack: Dockerfile
   port: 3000
   env:
-    PUBLIC_SITE_URL=https://rmfrt.xyz
+    PUBLIC_SITE_URL=https://preview.rmfrt.xyz
+    PUBLIC_CONTACT_EMAIL=
+
+rmfrt-site-prod
+  domaine: https://rmfrt.com
+  branche: main
+  build pack: Dockerfile
+  port: 3000
+  env:
+    PUBLIC_SITE_URL=https://rmfrt.com
     PUBLIC_CONTACT_EMAIL=
 ```
 
@@ -28,11 +37,11 @@ https://resume.rmfrt.com
 Le CV est integre dans la nouvelle route :
 
 ```txt
-https://rmfrt.xyz/en/resume/
+https://preview.rmfrt.xyz/en/resume/
 ```
 
-Quand la version sera stabilisee et que `rmfrt.com` deviendra la cible de
-production, prevoir une redirection :
+Quand la version sera stabilisee, activer explicitement `rmfrt-site-prod` et
+prevoir une redirection :
 
 ```txt
 https://resume.rmfrt.com -> https://rmfrt.com/en/resume/

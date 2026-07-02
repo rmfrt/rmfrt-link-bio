@@ -2,7 +2,7 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
-ARG PUBLIC_SITE_URL=https://rmfrt.xyz
+ARG PUBLIC_SITE_URL=https://preview.rmfrt.xyz
 ARG PUBLIC_CONTACT_EMAIL
 
 ENV PUBLIC_SITE_URL=$PUBLIC_SITE_URL
