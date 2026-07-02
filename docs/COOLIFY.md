@@ -1,6 +1,9 @@
 # Coolify
 
-## Application cible de test
+## Environnement de preview/staging
+
+`rmfrt.xyz` sert d'environnement de preview pour valider la v2 sans toucher aux
+domaines publics actuels. Ce n'est pas l'environnement de production final.
 
 ```txt
 rmfrt-xyz
@@ -13,7 +16,7 @@ rmfrt-xyz
     PUBLIC_CONTACT_EMAIL=
 ```
 
-## Domaines existants
+## Production actuelle
 
 Pendant cette phase, ne pas basculer :
 
@@ -28,7 +31,8 @@ Le CV est integre dans la nouvelle route :
 https://rmfrt.xyz/en/resume/
 ```
 
-Quand la version sera stabilisee, prevoir une redirection :
+Quand la version sera stabilisee et que `rmfrt.com` deviendra la cible de
+production, prevoir une redirection :
 
 ```txt
 https://resume.rmfrt.com -> https://rmfrt.com/en/resume/
