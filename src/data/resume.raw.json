@@ -1,0 +1,423 @@
+{
+    "Experience": [
+        {
+            "what": "Foundry Manager",
+            "where": {
+                "location": "[205TF](https://www.205.tf)",
+                "city": "Lyon",
+                "country": "France"
+            },
+            "when": { "start": "2019", "end": "NOW" },
+            "description": "Lead type design projects, manage client relationships, and develop communication strategies.",
+            "visible": true
+        },
+        {
+            "what": "Typography Lecturer",
+            "where": {
+                "location": "[Strate école de design](https://www.strate.design/ecole-design/strate-ecole-design-campus-lyon)",
+                "city": "Lyon",
+                "country": "France"
+            },
+            "when": { "start": "2019", "end": "NOW" },
+            "description": "Teach typography principles, focusing on typeface selection, usage, and foundational design concepts.",
+            "visible": true
+        },
+        {
+            "what": "Organizer, TypoLyon Lecture Series",
+            "where": { "location": "Strate école de design", "city": "Lyon", "country": "France" },
+            "when": { "start": "2023", "end": "NOW" },
+            "description": "Coordinate and develop a lecture series highlighting the local typographic community.",
+            "visible": true
+        },
+        {
+            "what": "Graphic and Typographic Designer",
+            "where": { "location": "Freelance", "city": "Lyon", "country": "France" },
+            "when": { "start": "2016", "end": "NOW" },
+            "description": "Specialize in editorial design, typography, and type design.",
+            "visible": true
+        },
+        {
+            "what": "Graphic Design Lecturer",
+            "where": {
+                "location": "École nationale supérieure des beaux-arts de Lyon",
+                "city": "Lyon",
+                "country": "France"
+            },
+            "when": { "start": "2020", "end": "2021" },
+            "description": "Supervised digital projects for the Master’s in Graphic Design program.",
+            "visible": true
+        }
+    ],
+    "Education": [
+        {
+            "what": "PhD Candidate in Research-Creation",
+            "where": { "location": "Université Paris 8", "city": "Paris", "country": "France" },
+            "when": { "start": "2019", "end": "NOW" },
+            "description": "Research focus: *Poetic Program, Typographic System* (TransCrit Research Unit).",
+            "visible": true
+        },
+        {
+            "what": "Post-Master’s Degree in Typography Research",
+            "where": {
+                "location": "Atelier national de recherche typographique",
+                "city": "Nancy",
+                "country": "France"
+            },
+            "when": { "start": "2017", "end": "2019" },
+            "visible": true
+        },
+        {
+            "what": "Master of Graphic Design",
+            "where": { "location": "École nationale supérieure des beaux-arts", "city": "Lyon", "country": "France" },
+            "when": { "start": "2014", "end": "2017" },
+            "visible": true
+        },
+        {
+            "what": "Bachelor of Graphic Design",
+            "where": { "location": "École nationale supérieure des beaux-arts", "city": "Lyon", "country": "France" },
+            "when": { "start": "2012", "end": "2014" },
+            "visible": true
+        },
+        {
+            "what": "Degree in Visual Communication",
+            "where": { "location": "École Estienne", "city": "Paris", "country": "France" },
+            "when": { "start": "2009", "end": "2011" },
+            "visible": true
+        }
+    ],
+    "Lectures": [
+        {
+            "what": "205TF Type Foundry Presentation",
+            "where": { "location": "Puces Typos", "city": "Paris", "country": "France" },
+            "when": { "start": "2024-05", "end": "" },
+            "description": "Presented an overview of recently released typefaces from the 205TF Type Foundry.",
+            "visible": true
+        },
+        {
+            "what": "Poetic Python, Typographic Python",
+            "where": { "location": "Meetup Python", "city": "Lyon", "country": "France" },
+            "when": { "start": "2024-03", "end": "" },
+            "description": "Discussed the integration of Python into research and creative projects, focusing on the intersection of poetry and typography.",
+            "visible": true
+        },
+        {
+            "what": "Poetic Program, Typographic System",
+            "where": {
+                "location": "Academy of Fine Arts and Design",
+                "city": "Ljubljana",
+                "country": "Slovenia"
+            },
+            "when": { "start": "2024-01", "end": "" },
+            "description": "Presented research and creative developments spanning seven years, combining poetry and typographic systems.",
+            "visible": true
+        },
+        {
+            "what": "Discussion on *A thousand times from A to Z*",
+            "where": { "location": "Maison de la Poésie", "city": "Rennes", "country": "France" },
+            "when": { "start": "2023-06", "end": "" },
+            "description": "Engaged in a discussion about the book produced during an artistic residency at Maison de la Poésie as part of the Carrément #2 event.",
+            "visible": true
+        },
+        {
+            "what": "The Creative Process Behind *A thousand times from A to Z*",
+            "where": { "location": "Édulab Pasteur", "city": "Rennes", "country": "France" },
+            "when": { "start": "2023-03", "end": "" },
+            "description": "Delivered a presentation on the development of the book during an artistic residency.",
+            "visible": true
+        },
+        {
+            "what": "Fiction and Data in Poetry and Typography",
+            "where": { "location": "Université Jean Moulin Lyon 3", "city": "Lyon", "country": "France" },
+            "when": { "start": "2023-03", "end": "" },
+            "description": "Explored the role of data in research-creation at an international conference, with a focus on poetry and typography.",
+            "visible": true
+        },
+        {
+            "what": "How I Write and Design *Crosswords*",
+            "where": { "location": "LPO André Malraux", "city": "Montereau Fault-Yonne", "country": "France" },
+            "when": { "start": "2023-02", "end": "" },
+            "description": "Explained the creative process behind the book *Crosswords* to students.",
+            "visible": true
+        },
+        {
+            "what": "A Generative Approach to Poetry and Typography",
+            "where": { "location": "Rencontres internationales de Lure", "city": "Lurs", "country": "France" },
+            "when": { "start": "2022-08", "end": "" },
+            "description": "Presented generative approaches to poetry and typography.",
+            "visible": true
+        },
+        {
+            "what": "TypoFilm #2: Helvetica",
+            "where": {
+                "location": "[Centre Pompidou](https://www.centrepompidou.fr/fr/programme/agenda/evenement/1qv6nQQ)",
+                "city": "Paris",
+                "country": "France"
+            },
+            "when": { "start": "2022-02", "end": "" },
+            "description": "Presented an overview of the Helvetica typeface, accompanying a screening of experimental films from the museum’s collection.",
+            "visible": true
+        },
+        {
+            "what": "Séminaire “Textualités contemporaines”",
+            "where": "Université Paris 8 Vincennes Saint-Denis",
+            "when": { "start": "2021-06", "end": "" }
+        },
+        {
+            "what": "“Let It Read” international symposium",
+            "where": "Campus Fonderie de l’image (Bagnolet)",
+            "when": { "start": "2019-11", "end": "" }
+        },
+        {
+            "what": "Le temps découpé en son lieu",
+            "where": "Fondation d’entreprise Ricard (Paris)",
+            "when": { "start": "2019-11", "end": "" }
+        },
+        {
+            "what": "Colloque international Machiner la poésie (et la poétique) 3",
+            "where": "Atilf, Cnrs (Nancy)",
+            "when": { "start": "2019-09", "end": "" }
+        },
+        {
+            "what": "Journée d’étude Écologie des contenus générés par les utilisateurs",
+            "where": "École nationale supérieure des arts décoratifs (Paris)",
+            "when": { "start": "2019-06", "end": "" }
+        },
+        { "what": "Le temps suspendu", "where": "Librairie Descours (Lyon, France)", "when": ["2016-12"] },
+        {
+            "what": "Initiales 7 Pier Paolo Pasolini",
+            "where": "Fondation d’entreprise Ricard (Paris)",
+            "when": { "start": "2016-04", "end": "" }
+        }
+    ],
+    "Typefaces": [
+        {
+            "what": "Krata",
+            "where": { "location": "205TF", "city": "", "country": "France" },
+            "when": { "start": "2024-06", "end": "" },
+            "description": "[Krata](https://www.205.tf/krata) is a generative, minimalist variable font, created with Python, that explores the boundaries of type design.",
+            "visible": true
+        }
+    ],
+    "Publications": [
+        {
+            "what": "Introspection",
+            "where": {
+                "location": "[Container](https://acontainer.co/projects/look-book-2024/)",
+                "city": "",
+                "country": "USA"
+            },
+            "when": { "start": "2024-10", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Experimenting is Above All a Process",
+            "where": {
+                "location": "[Slanted Magazine #40](https://www.slanted.de/product/slanted-magazine-40-experimental-type/)",
+                "city": "",
+                "country": "Germany"
+            },
+            "when": { "start": "2022-10", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "X, O, Cross, Circle",
+            "where": {
+                "location": "[Revue Dire #1](https://www.tierslivre.net/revue/spip.php?article849)",
+                "city": "",
+                "country": "France"
+            },
+            "when": { "start": "2022-04", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Airplane Crash",
+            "where": {
+                "location": "[Paper View Publishing](https://paperviewbooks.pt/)",
+                "city": "",
+                "country": "Portugal"
+            },
+            "when": { "start": "2022-01", "end": "" },
+            "visible": true
+        },
+
+        {
+            "what": "The Spectre of Mallarmé",
+            "where": {
+                "location": "[No Press](https://derekbeaulieu.ca/no-press/)",
+                "city": "",
+                "country": "Canada"
+            },
+            "when": { "start": "2022-01", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Extase",
+            "where": {
+                "location": "[Revue Revu #9](https://associationrevu.com/)",
+                "city": "",
+                "country": "France"
+            },
+            "when": { "start": "2021-12", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "sans langage Pensées",
+            "where": {
+                "location": "Revue Formules #22",
+                "city": "",
+                "country": "USA"
+            },
+            "when": { "start": "2021-03", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Pour avoir un accent il faut être deux",
+            "where": {
+                "location": "[Revue Sabir #2](https://revuesabir.com)",
+                "city": "",
+                "country": "Belgium"
+            },
+            "when": { "start": "2020-02", "end": "" },
+            "visible": true
+        }
+    ],
+    "Workshops": [
+        {
+            "what": "New Kids on the Blockchain",
+            "where": {
+                "location": "Academy of Fine Arts and Design",
+                "city": "Ljubljana",
+                "country": "Slovenia"
+            },
+            "when": { "start": "2024-01", "end": "" },
+            "description": "Facilitated a workshop introducing students to generative design using Python.",
+            "visible": true
+        },
+        {
+            "what": "Experimental Typographic Systems",
+            "where": {
+                "location": "LPO André Malraux",
+                "city": "Montereau Fault-Yonne",
+                "country": "France"
+            },
+            "when": { "start": "2023-02", "end": "" },
+            "description": "Led a workshop on experimental typographic design within constrained systems.",
+            "visible": true
+        },
+        {
+            "what": "Run the Rules",
+            "where": {
+                "location": "Campus Fonderie de l’image",
+                "city": "Bagnolet",
+                "country": "France"
+            },
+            "when": { "start": "2022-12", "end": "" },
+            "description": "Conducted a workshop on experimental typographic design under constraint, in collaboration with Simon Renaud.",
+            "visible": true
+        },
+        {
+            "what": "Editorial Design",
+            "where": {
+                "location": "École nationale supérieure d’art et de design",
+                "city": "Nancy",
+                "country": "France"
+            },
+            "when": { "start": "2018-12", "end": "" },
+            "description": "Taught foundational principles of editorial design and typography, in collaboration with Éloïsa Perez.",
+            "visible": true
+        },
+        {
+            "what": "Editorial Design",
+            "where": {
+                "location": "École nationale supérieure d’art et de design",
+                "city": "Nancy",
+                "country": "France"
+            },
+            "when": { "start": "2018-02", "end": "" },
+            "description": "Taught foundational principles of editorial design and typography, in collaboration with Clément Le-Tulle Neyret.",
+            "visible": true
+        }
+    ],
+    "Jury Member": [
+        {
+            "what": "Master’s in Communication (Arts and Graphic Languages)",
+            "where": { "location": "École Supérieure d’Art de Lorraine", "city": "Metz", "country": "France" },
+            "when": { "start": "2024-06", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Bachelor’s in Graphic Design",
+            "where": { "location": "LPO André Malraux", "city": "Montereau Fault-Yonne", "country": "France" },
+            "when": { "start": "2023-02", "end": "" },
+            "visible": true
+        },
+        {
+            "what": "Master’s in Art Direction for Graphic Design",
+            "where": {
+                "location": "Campus Fonderie de l’Image",
+                "city": "Bagnolet",
+                "country": "France"
+            },
+            "when": { "start": "2022-06", "end": "" },
+            "visible": true
+        }
+    ],
+    "Exhibitions": [
+        {
+            "what": "Long Distance Drawing",
+            "where": { "location": "Maison de l’Architecture", "city": "Amiens", "country": "France" },
+            "when": ["2024-04"],
+            "description": "Contributed to the collective project *Long Distance Drawing* featuring work produced with a pen plotter.",
+            "visible": true
+        },
+        {
+            "what": "Algorithms",
+            "where": { "location": "Repère(s)", "city": "Lyon", "country": "France" },
+            "when": { "start": "2023-07", "end": "" },
+            "description": "Solo exhibition showcasing a series of pen plotter drawings.",
+            "visible": true
+        },
+        {
+            "what": "This word doesn’t exist",
+            "where": { "location": "The Wrong Biennale", "city": "online", "country": "" },
+            "when": { "start": "2019-04", "end": "" },
+            "description": "Participated in a group exhibition focusing on the semiotic shifts driven by the Internet.",
+            "visible": true
+        },
+        {
+            "what": "Algolit",
+            "where": { "location": "Mundaneum", "city": "Mons", "country": "Belgique" },
+            "when": { "start": "2019-04", "end": "" },
+            "description": "Contributed to a collective exhibition exploring the intersection of algorithms and literature.",
+            "visible": true
+        }
+    ],
+    "Press Review": [
+        {
+            "what": "Krata is a Typeface that Bridges Design and Programming",
+            "where": {
+                "location": "[Print Magazine](https://www.printmag.com/type-tuesday/krata-typeface-remi-forte/)",
+                "city": "",
+                "country": "USA"
+            },
+            "when": { "start": "2024-06", "end": "" },
+            "description": "Reviewed by Kim Tidwell.",
+            "visible": true
+        },
+        {
+            "what": "Épanouissement Personnel",
+            "where": { "location": "Étapes Magazine #240", "city": "", "country": "France" },
+            "when": { "start": "2017-10", "end": "" },
+            "description": "Reviewed by Marion Bothorel.",
+            "visible": true
+        }
+    ],
+    "Awards": [
+        {
+            "what": "Recipient of the Partners’ Prize",
+            "where": { "location": "École nationale supérieure des beaux-arts", "city": "Lyon", "country": "France" },
+            "when": { "start": "2017", "end": "" },
+            "visible": true
+        }
+    ]
+}

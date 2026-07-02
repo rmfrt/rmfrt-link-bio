@@ -1,0 +1,56 @@
+---
+import "../styles/global.css";
+import { absoluteUrl, siteIdentity, type Locale } from "../data/site";
+
+type AlternatePaths = Partial<Record<Locale | "x-default", string>>;
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path: string;
+  alternatePaths?: AlternatePaths;
+  image?: string;
+  refreshPath?: string;
+}
+
+const {
+  locale,
+  title,
+  description,
+  path,
+  alternatePaths = { fr: "/fr/", en: "/en/", "x-default": "/fr/" },
+  image = siteIdentity.ogImage,
+  refreshPath
+} = Astro.props;
+
+const canonical = absoluteUrl(path);
+const imageUrl = absoluteUrl(image);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {Object.entries(alternatePaths).map(([lang, href]) => <link rel="alternate" hreflang={lang} href={absoluteUrl(href)} />)}
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteIdentity.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    {refreshPath && <meta http-equiv="refresh" content={`0;url=${refreshPath}`} />}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

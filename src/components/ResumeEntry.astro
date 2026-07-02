@@ -1,0 +1,24 @@
+---
+import type { ResumeItem } from "../data/resume";
+import { formatDateRange, formatLocationHtml } from "../data/resume";
+import { renderInlineMarkdown } from "../data/markdown";
+
+interface Props {
+  item: ResumeItem;
+}
+
+const { item } = Astro.props;
+---
+
+<article class="grid gap-2 border-t border-line py-5 first:border-t-0 sm:grid-cols-[minmax(0,1fr)_9rem] sm:gap-5">
+  <div class="min-w-0">
+    <h3 class="text-lg font-semibold leading-snug text-paper sm:text-xl" set:html={renderInlineMarkdown(item.what)}></h3>
+    <p class="resume-location mt-1 text-sm leading-6 text-muted sm:text-base" set:html={formatLocationHtml(item.where)}></p>
+    {
+      item.description && (
+        <p class="rich-text mt-3 max-w-2xl text-sm leading-6 text-muted" set:html={renderInlineMarkdown(item.description)}></p>
+      )
+    }
+  </div>
+  <p class="text-sm leading-6 text-muted sm:text-right">{formatDateRange(item.when)}</p>
+</article>

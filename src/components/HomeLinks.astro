@@ -1,0 +1,56 @@
+---
+import { isExternalUrl, primaryLinks, secondaryLinks } from "../data/links";
+import type { Locale } from "../data/site";
+
+interface Props {
+  locale: Locale;
+  primaryLabel: string;
+  secondaryLabel: string;
+}
+
+const { locale, primaryLabel, secondaryLabel } = Astro.props;
+---
+
+<div class="grid gap-10">
+  <nav aria-labelledby="primary-links-heading">
+    <h2 id="primary-links-heading" class="mb-3 text-xs font-semibold tracking-[0.16em] text-muted uppercase">
+      {primaryLabel}
+    </h2>
+    <div class="grid gap-2">
+      {
+        primaryLinks.map((link) => (
+          <a
+            href={link.href}
+            target={isExternalUrl(link.href) && !link.href.startsWith("mailto:") ? "_blank" : undefined}
+            rel={isExternalUrl(link.href) ? ["noopener noreferrer", link.rel].filter(Boolean).join(" ") : undefined}
+            aria-label={link.note ? `${link.label[locale]} — ${link.note[locale]}` : link.label[locale]}
+            class="group grid min-h-16 grid-cols-[1fr_auto] items-center gap-4 rounded-lg border border-line bg-panel px-4 py-3 transition-colors hover:border-accent/70"
+          >
+            <span class="text-lg font-medium text-paper">{link.label[locale]}</span>
+            {link.note && <span class="text-right text-sm text-muted group-hover:text-accent">{link.note[locale]}</span>}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+
+  <nav aria-labelledby="secondary-links-heading">
+    <h2 id="secondary-links-heading" class="mb-3 text-xs font-semibold tracking-[0.16em] text-muted uppercase">
+      {secondaryLabel}
+    </h2>
+    <div class="flex flex-wrap gap-x-5 gap-y-3 text-base">
+      {
+        secondaryLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel={["noopener noreferrer", link.rel].filter(Boolean).join(" ")}
+            class="text-muted underline decoration-line hover:text-accent"
+          >
+            {link.label[locale]}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</div>
