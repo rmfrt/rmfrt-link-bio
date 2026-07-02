@@ -1,34 +1,25 @@
 import type { Locale } from "./site";
 
 type LinkItem = {
-  href: string;
+  href?: string;
+  kind?: "email";
   label: Record<Locale, string>;
-  note?: Record<Locale, string>;
   rel?: string;
 };
 
-const contactEmail = import.meta.env.PUBLIC_CONTACT_EMAIL;
-
-const contactLink: LinkItem | null = contactEmail
-  ? {
-      href: `mailto:${contactEmail}`,
-      label: { fr: "Contact", en: "Contact" },
-      note: { fr: "Email", en: "Email" }
-    }
-  : null;
-
 export const primaryLinks: LinkItem[] = [
   {
+    kind: "email",
+    label: { fr: "Email", en: "Email" }
+  },
+  {
     href: "/en/resume/",
-    label: { fr: "CV", en: "Resume" },
-    note: { fr: "CV en anglais", en: "Resume in English" }
+    label: { fr: "CV", en: "Resume" }
   },
   {
     href: "https://www.typolyon.fr/",
-    label: { fr: "TypoLyon", en: "TypoLyon" },
-    note: { fr: "Cycle de conférences", en: "Lecture series" }
-  },
-  ...(contactLink ? [contactLink] : [])
+    label: { fr: "TypoLyon", en: "TypoLyon" }
+  }
 ];
 
 export const secondaryLinks: LinkItem[] = [
@@ -50,5 +41,5 @@ export const secondaryLinks: LinkItem[] = [
 ];
 
 export function isExternalUrl(href: string): boolean {
-  return href.startsWith("http://") || href.startsWith("https://") || href.startsWith("mailto:");
+  return href.startsWith("http://") || href.startsWith("https://");
 }

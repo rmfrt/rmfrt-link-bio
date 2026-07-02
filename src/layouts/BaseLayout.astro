@@ -26,6 +26,9 @@ const {
 
 const canonical = absoluteUrl(path);
 const imageUrl = absoluteUrl(image);
+const ogLocale = locale === "fr" ? "fr_FR" : "en_US";
+const alternateOgLocale = locale === "fr" ? "en_US" : "fr_FR";
+const hasAlternateOgLocale = locale === "fr" ? Boolean(alternatePaths.en) : Boolean(alternatePaths.fr);
 ---
 
 <!doctype html>
@@ -35,10 +38,13 @@ const imageUrl = absoluteUrl(image);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
     {siteNoindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="canonical" href={canonical} />
     {Object.entries(alternatePaths).map(([lang, href]) => <link rel="alternate" hreflang={lang} href={absoluteUrl(href)} />)}
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content={ogLocale} />
+    {hasAlternateOgLocale && <meta property="og:locale:alternate" content={alternateOgLocale} />}
     <meta property="og:site_name" content={siteIdentity.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -51,7 +57,7 @@ const imageUrl = absoluteUrl(image);
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     {refreshPath && <meta http-equiv="refresh" content={`0;url=${refreshPath}`} />}
   </head>
-  <body>
+  <body class="bg-neutral-950 text-base text-neutral-50">
     <slot />
   </body>
 </html>

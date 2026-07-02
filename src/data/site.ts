@@ -13,5 +13,5 @@ export function absoluteUrl(path: string): string {
 export const siteIdentity = {
   name: "Rémi Forte",
   handle: "rmfrt",
-  ogImage: "/og.svg"
+  ogImage: "/og.png"
 } as const;

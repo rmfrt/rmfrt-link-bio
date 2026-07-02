@@ -3,32 +3,17 @@ import type { Locale } from "./site";
 export const homeContent = {
   fr: {
     title: "Rémi Forte",
-    description: "Programme poétique, systèmes typographiques, design graphique et code.",
-    eyebrow: "Design graphique, typographie, recherche-création",
-    lede: "Programme poétique, systèmes typographiques, design graphique et code.",
-    primaryLabel: "Principaux",
-    secondaryLabel: "Ailleurs",
-    resumeNote: "CV en anglais"
+    description: "Programme poétique, systèmes typographiques, design graphique et code."
   },
   en: {
     title: "Rémi Forte",
-    description: "Poetic program, typographic systems, graphic design, and code.",
-    eyebrow: "Graphic design, typography, research-creation",
-    lede: "Poetic program, typographic systems, graphic design, and code.",
-    primaryLabel: "Primary",
-    secondaryLabel: "Elsewhere",
-    resumeNote: "Resume in English"
+    description: "Poetic program, typographic systems, graphic design, and code."
   }
 } satisfies Record<
   Locale,
   {
     title: string;
     description: string;
-    eyebrow: string;
-    lede: string;
-    primaryLabel: string;
-    secondaryLabel: string;
-    resumeNote: string;
   }
 >;
 

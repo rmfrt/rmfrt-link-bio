@@ -13,7 +13,6 @@ rmfrt-site-preview
   port: 3000
   env:
     PUBLIC_SITE_URL=https://preview.rmfrt.xyz
-    PUBLIC_CONTACT_EMAIL=
     PUBLIC_NOINDEX=true
 
 rmfrt-site-prod
@@ -23,7 +22,6 @@ rmfrt-site-prod
   port: 3000
   env:
     PUBLIC_SITE_URL=https://rmfrt.com
-    PUBLIC_CONTACT_EMAIL=
     PUBLIC_NOINDEX=false
 ```
 

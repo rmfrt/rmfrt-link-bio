@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Rémi Forte</title>
-  <desc id="desc">Open Graph image for rmfrt.xyz</desc>
-  <rect width="1200" height="630" fill="#0b0d0c"/>
-  <circle cx="1040" cy="120" r="72" fill="#75e08d"/>
-  <rect x="80" y="78" width="1040" height="474" rx="18" fill="none" stroke="#30352f" stroke-width="2"/>
-  <text x="104" y="316" fill="#f7f7f2" font-family="Inter, system-ui, sans-serif" font-size="92" font-weight="700">Rémi Forte</text>
-  <text x="110" y="382" fill="#9a9f98" font-family="Inter, system-ui, sans-serif" font-size="34">Poetic program · Typographic systems · Code</text>
-  <text x="110" y="506" fill="#f1c75b" font-family="Inter, system-ui, sans-serif" font-size="26" letter-spacing="6">RMFRT.XYZ</text>
+  <desc id="desc">Open Graph image for Rémi Forte</desc>
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+  <text x="600" y="330" fill="#fafafa" font-family="Muoto, system-ui, sans-serif" font-size="96" font-weight="400" text-anchor="middle">Rémi Forte</text>
 </svg>

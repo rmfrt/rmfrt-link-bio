@@ -16,9 +16,9 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
   <SiteHeader locale="en" activePath="/en/resume/" />
   <main class="mx-auto w-full max-w-4xl px-5 pb-24 pt-10 sm:px-8 sm:pt-16">
     <section class="max-w-3xl">
-      <p class="text-sm font-semibold tracking-[0.16em] text-warm uppercase">{resumeContent.eyebrow}</p>
-      <h1 class="mt-5 text-5xl font-semibold leading-none text-paper sm:text-7xl">{resumeContent.heading}</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">{resumeContent.intro}</p>
+      <p class="text-base text-neutral-50">{resumeContent.eyebrow}</p>
+      <h1 class="mt-5 text-base text-neutral-50">{resumeContent.heading}</h1>
+      <p class="mt-6 max-w-2xl text-base text-neutral-50">{resumeContent.intro}</p>
     </section>
 
     <div class="mt-16 grid gap-16">
@@ -27,7 +27,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
           <section aria-labelledby={`resume-${section.title.toLowerCase().replaceAll(" ", "-")}`}>
             <h2
               id={`resume-${section.title.toLowerCase().replaceAll(" ", "-")}`}
-              class="mb-2 text-xs font-semibold tracking-[0.16em] text-accent uppercase"
+              class="mb-2 text-base text-neutral-50"
             >
               {section.title}
             </h2>

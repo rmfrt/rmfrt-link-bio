@@ -4,53 +4,47 @@ import type { Locale } from "../data/site";
 
 interface Props {
   locale: Locale;
-  primaryLabel: string;
-  secondaryLabel: string;
 }
 
-const { locale, primaryLabel, secondaryLabel } = Astro.props;
+const { locale } = Astro.props;
+const links = [...primaryLinks, ...secondaryLinks];
+const itemClass =
+  "grid min-h-16 cursor-pointer place-items-center border border-neutral-50/25 bg-neutral-950 px-4 py-3 hover:border-neutral-50";
+const navLabel = locale === "fr" ? "Liens" : "Links";
 ---
 
-<div class="grid gap-10">
-  <nav aria-labelledby="primary-links-heading">
-    <h2 id="primary-links-heading" class="mb-3 text-xs font-semibold tracking-[0.16em] text-muted uppercase">
-      {primaryLabel}
-    </h2>
-    <div class="grid gap-2">
-      {
-        primaryLinks.map((link) => (
+<nav aria-label={navLabel}>
+  <div class="grid gap-2">
+    {
+      links.map((link) =>
+        link.kind === "email" ? (
+          <button type="button" data-email-link class={itemClass}>
+            <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
+          </button>
+        ) : (
           <a
             href={link.href}
-            target={isExternalUrl(link.href) && !link.href.startsWith("mailto:") ? "_blank" : undefined}
-            rel={isExternalUrl(link.href) ? ["noopener noreferrer", link.rel].filter(Boolean).join(" ") : undefined}
-            aria-label={link.note ? `${link.label[locale]} — ${link.note[locale]}` : link.label[locale]}
-            class="group grid min-h-16 grid-cols-[1fr_auto] items-center gap-4 rounded-lg border border-line bg-panel px-4 py-3 transition-colors hover:border-accent/70"
+            target={link.href && isExternalUrl(link.href) ? "_blank" : undefined}
+            rel={link.href && isExternalUrl(link.href) ? ["noopener noreferrer", link.rel].filter(Boolean).join(" ") : undefined}
+            class={itemClass}
           >
-            <span class="text-lg font-medium text-paper">{link.label[locale]}</span>
-            {link.note && <span class="text-right text-sm text-muted group-hover:text-accent">{link.note[locale]}</span>}
+            <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
           </a>
-        ))
-      }
-    </div>
-  </nav>
+        )
+      )
+    }
+  </div>
+</nav>
 
-  <nav aria-labelledby="secondary-links-heading">
-    <h2 id="secondary-links-heading" class="mb-3 text-xs font-semibold tracking-[0.16em] text-muted uppercase">
-      {secondaryLabel}
-    </h2>
-    <div class="flex flex-wrap gap-x-5 gap-y-3 text-base">
-      {
-        secondaryLinks.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel={["noopener noreferrer", link.rel].filter(Boolean).join(" ")}
-            class="text-muted underline decoration-line hover:text-accent"
-          >
-            {link.label[locale]}
-          </a>
-        ))
-      }
-    </div>
-  </nav>
-</div>
+<script>
+  const emailLinks = document.querySelectorAll("[data-email-link]");
+  const scheme = [109, 97, 105, 108, 116, 111, 58];
+  const address = [105, 110, 102, 111, 64, 114, 109, 102, 114, 116, 46, 99, 111, 109];
+  const toText = (codes: number[]) => String.fromCharCode(...codes);
+
+  emailLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      window.location.href = `${toText(scheme)}${toText(address)}`;
+    });
+  });
+</script>
