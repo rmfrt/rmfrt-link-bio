@@ -17,6 +17,9 @@ npm run preview
 ```txt
 PUBLIC_SITE_URL=https://preview.rmfrt.xyz
 PUBLIC_CONTACT_EMAIL=
+PUBLIC_NOINDEX=true
 ```
 
 `PUBLIC_CONTACT_EMAIL` is optional. When omitted, no email link is rendered.
+`PUBLIC_NOINDEX` should stay `true` for preview deployments and be set to
+`false` only for the final production domain.

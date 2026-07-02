@@ -14,6 +14,7 @@ rmfrt-site-preview
   env:
     PUBLIC_SITE_URL=https://preview.rmfrt.xyz
     PUBLIC_CONTACT_EMAIL=
+    PUBLIC_NOINDEX=true
 
 rmfrt-site-prod
   domaine: https://rmfrt.com
@@ -23,6 +24,7 @@ rmfrt-site-prod
   env:
     PUBLIC_SITE_URL=https://rmfrt.com
     PUBLIC_CONTACT_EMAIL=
+    PUBLIC_NOINDEX=false
 ```
 
 ## Production actuelle
@@ -53,8 +55,10 @@ L'image Docker construit le site Astro en statique, puis sert `dist/` avec Nginx
 sur le port `3000`.
 
 `PUBLIC_SITE_URL` est utilise au build pour les canonical, Open Graph, robots
-et sitemap. Pour la future bascule, remplacer par :
+et sitemap. `PUBLIC_NOINDEX=true` garde la preview hors indexation. Pour la
+future bascule, remplacer par :
 
 ```txt
 PUBLIC_SITE_URL=https://rmfrt.com
+PUBLIC_NOINDEX=false
 ```

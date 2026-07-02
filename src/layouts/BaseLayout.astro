@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { absoluteUrl, siteIdentity, type Locale } from "../data/site";
+import { absoluteUrl, siteIdentity, siteNoindex, type Locale } from "../data/site";
 
 type AlternatePaths = Partial<Record<Locale | "x-default", string>>;
 
@@ -35,6 +35,7 @@ const imageUrl = absoluteUrl(image);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {siteNoindex && <meta name="robots" content="noindex,nofollow" />}
     <link rel="canonical" href={canonical} />
     {Object.entries(alternatePaths).map(([lang, href]) => <link rel="alternate" hreflang={lang} href={absoluteUrl(href)} />)}
     <meta property="og:type" content="website" />
