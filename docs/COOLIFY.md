@@ -60,3 +60,18 @@ future bascule, remplacer par :
 PUBLIC_SITE_URL=https://rmfrt.com
 PUBLIC_NOINDEX=false
 ```
+
+## Analytics cible
+
+Decision : utiliser `Umami` comme analytics mutualise pour les sites deployes
+sur Coolify.
+
+Hypothese cible :
+
+```txt
+https://analytics.rmfrt.xyz
+```
+
+Chaque site public devra avoir sa propre entree `Website` dans Umami et donc son
+propre `data-website-id`. Ne pas activer le tracking sur
+`preview.rmfrt.xyz` ni sur un environnement avec `PUBLIC_NOINDEX=true`.
