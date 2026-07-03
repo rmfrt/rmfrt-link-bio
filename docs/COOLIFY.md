@@ -81,14 +81,22 @@ GitHub webhook secret: stocke dans Coolify, hors depot
 
 Le webhook GitHub utilise l'endpoint manuel GitHub de Coolify. Ne pas stocker
 son secret dans le depot. Le webhook doit repondre `200` aux livraisons GitHub.
+Le meme webhook couvre la production et la preview : Coolify filtre ensuite les
+applications par branche (`main` pour prod, `astro-v2` pour preview). Les
+secrets GitHub webhook des deux applications Coolify doivent donc rester
+alignes.
 
-Validation effectuee :
+Tests effectues le 2026-07-03 :
 
 ```txt
 GitHub ping delivery: 200
 GitHub push test delivery: 200
 Coolify deployment from webhook: hg2iv6mwnsd0jbxs4xa1eeyk finished
 Webhook deployment commit: 482d1e0
+Real push deployment: rszjagld4hxf23hwhn6eesy5 finished
+Real push deployment commit: 0431579
+Preview signed push test: g4td5ggspmm36cqhzenp4stx finished
+Preview signed push test commit: a24d1c8
 ```
 
 Verification rapide :
