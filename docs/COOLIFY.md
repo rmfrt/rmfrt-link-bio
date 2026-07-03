@@ -13,6 +13,7 @@ rmfrt-site-preview
   domaine: https://preview.rmfrt.xyz
   branche: preview
   auto-deploy: GitHub webhook push
+  HTTP Basic Auth: actif via labels Traefik Coolify
   build pack: Dockerfile
   port: 3000
   env:
@@ -97,6 +98,17 @@ main branch    -> https://rmfrt.com
 Les changements de design doivent d'abord partir sur `preview`. Apres validation
 sur `preview.rmfrt.xyz`, merger ou fast-forwarder `preview` vers `main` pour la
 mise en production.
+
+La preview est protegee par HTTP Basic Auth au niveau Traefik. Les identifiants
+sont stockes hors depot dans :
+
+```txt
+~/.config/coolify/rmfrt-site-preview-basic-auth.env
+```
+
+Note Coolify 4.1.2 : le flag API `is_http_basic_auth_enabled` est bien active,
+mais la protection effective de `preview.rmfrt.xyz` repose aussi sur des labels
+Traefik personnalises dans l'application Coolify.
 
 Tests effectues le 2026-07-03 :
 
