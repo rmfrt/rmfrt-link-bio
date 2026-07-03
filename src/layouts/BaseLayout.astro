@@ -9,7 +9,6 @@ interface Props {
   path: string;
   image?: string;
   imageAlt?: string;
-  refreshPath?: string;
 }
 
 const {
@@ -17,8 +16,7 @@ const {
   description,
   path,
   image = siteIdentity.ogImage,
-  imageAlt = siteIdentity.ogImageAlt,
-  refreshPath
+  imageAlt = siteIdentity.ogImageAlt
 } = Astro.props;
 
 const canonical = absoluteUrl(path);
@@ -57,7 +55,6 @@ const robots = siteNoindex ? "noindex,nofollow,noarchive" : "index,follow";
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    {refreshPath && <meta http-equiv="refresh" content={`0;url=${refreshPath}`} />}
     <Analytics />
   </head>
   <body class="bg-neutral-950 text-base text-neutral-50">

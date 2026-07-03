@@ -51,6 +51,8 @@ La production Coolify repond correctement en public :
 ```txt
 https://rmfrt.com/
 https://rmfrt.com/resume/
+https://rmfrt.com/en/ -> 301 https://rmfrt.com/
+https://rmfrt.com/en/resume/ -> 301 https://rmfrt.com/resume/
 ```
 
 DNS public apres bascule :
