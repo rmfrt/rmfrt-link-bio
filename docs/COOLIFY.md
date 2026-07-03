@@ -25,6 +25,7 @@ rmfrt-site-prod
     https://www.rmfrt.com
     https://resume.rmfrt.com
   branche: main
+  auto-deploy: GitHub webhook push
   build pack: Dockerfile
   port: 3000
   env:
@@ -40,10 +41,10 @@ rmfrt-site-prod
 Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-Commit applicatif deploye: d87970b
 Coolify app: rmfrt-site-prod
+Git branch: main
+Auto-deploy: GitHub webhook push actif
 Coolify status: running:healthy
-Deployment: n144wlqbvea5qquv7ybged3i finished
 ```
 
 La production Coolify repond correctement en public :
@@ -62,6 +63,38 @@ rmfrt.com         -> 82.67.166.248
 www.rmfrt.com     -> 82.67.166.248, redirection 301 vers https://rmfrt.com/*
 resume.rmfrt.com  -> 82.67.166.248, redirection 301 vers https://rmfrt.com/resume/
 rmfrt.com NS      -> ada.ns.cloudflare.com, bowen.ns.cloudflare.com
+```
+
+## Deploiement automatique
+
+`rmfrt-site-prod` suit la branche `main`.
+
+Configuration validee le 2026-07-03 :
+
+```txt
+Coolify auto-deploy: enabled
+GitHub webhook: active
+GitHub webhook events: push
+GitHub webhook content type: application/json
+GitHub webhook secret: stocke dans Coolify, hors depot
+```
+
+Le webhook GitHub utilise l'endpoint manuel GitHub de Coolify. Ne pas stocker
+son secret dans le depot. Le webhook doit repondre `200` aux livraisons GitHub.
+
+Validation effectuee :
+
+```txt
+GitHub ping delivery: 200
+GitHub push test delivery: 200
+Coolify deployment from webhook: hg2iv6mwnsd0jbxs4xa1eeyk finished
+Webhook deployment commit: 482d1e0
+```
+
+Verification rapide :
+
+```sh
+gh api repos/rmfrt/rmfrt-link-bio/hooks --jq '.[] | {id, active, events, last_response}'
 ```
 
 ## Bascule Vercel / DNS
