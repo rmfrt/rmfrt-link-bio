@@ -19,6 +19,7 @@ rmfrt-site-preview
     PUBLIC_NOINDEX=true
 
 rmfrt-site-prod
+  uuid: ztnx9pvmsyhsrnaguodz7yfe
   domaine principal: https://rmfrt.com
   domaine additionnel: https://rmfrt.xyz
   branche: main
@@ -34,25 +35,31 @@ rmfrt-site-prod
 
 ## Production actuelle
 
-Pendant cette phase, ne pas basculer :
+Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-https://rmfrt.xyz
-https://rmfrt.com
-https://resume.rmfrt.com
+Git main: 09aa767
+Coolify app: rmfrt-site-prod
+Coolify status: running:healthy
+Deployment: bii278d31cuxg4m22lfgwp7l finished
 ```
 
-Le CV est integre dans la nouvelle route :
+La production Coolify repond correctement quand la resolution DNS est forcee
+vers le home-server :
 
 ```txt
-https://preview.rmfrt.xyz/resume/
+https://rmfrt.com/
+https://rmfrt.com/resume/
+https://rmfrt.xyz/
+https://rmfrt.xyz/resume/
 ```
 
-Quand la version sera stabilisee, activer explicitement `rmfrt-site-prod` et
-prevoir une redirection :
+DNS public restant a basculer :
 
 ```txt
-https://resume.rmfrt.com -> https://rmfrt.com/resume/
+rmfrt.com       -> encore Vercel au moment du controle
+rmfrt.xyz       -> encore a finaliser cote Cloudflare au moment du controle
+resume.rmfrt.com -> a rediriger vers https://rmfrt.com/resume/
 ```
 
 ## Bascule Vercel / DNS
