@@ -3,7 +3,8 @@ import { isExternalUrl, primaryLinks, secondaryLinks } from "../data/links";
 
 const links = [...primaryLinks, ...secondaryLinks];
 const itemClass =
-  "grid min-h-16 cursor-pointer place-items-center border border-neutral-50/25 bg-neutral-950 px-4 py-3 hover:border-neutral-50";
+  "grid h-16 cursor-pointer place-items-center border border-neutral-50 px-4 py-3";
+const labelClass = "text-center text-xl text-neutral-50";
 const navLabel = "Links";
 const emailAriaLabel = "Email Rémi Forte";
 const externalLabelSuffix = " (opens in a new tab)";
@@ -23,7 +24,7 @@ function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
       links.map((link) =>
         link.kind === "email" ? (
           <button type="button" data-email-link class={itemClass} aria-label={emailAriaLabel}>
-            <span class="text-center text-base text-neutral-50">{link.label}</span>
+            <span class={labelClass}>{link.label}</span>
           </button>
         ) : (
           <a
@@ -33,7 +34,7 @@ function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
             class={itemClass}
             aria-label={getLinkAriaLabel(link)}
           >
-            <span class="text-center text-base text-neutral-50">{link.label}</span>
+            <span class={labelClass}>{link.label}</span>
           </a>
         )
       )
