@@ -39,7 +39,7 @@ rmfrt-site-prod
 Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-Git main: a24d1c8
+Commit applicatif deploye: a24d1c8
 Coolify app: rmfrt-site-prod
 Coolify status: running:healthy
 Deployment: dbgdzt7gipoitdwd1o4ya13r finished
