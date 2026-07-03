@@ -7,13 +7,6 @@ const site = (process.env.PUBLIC_SITE_URL || "https://preview.rmfrt.xyz").replac
 export default defineConfig({
   site,
   trailingSlash: "always",
-  i18n: {
-    locales: ["fr", "en"],
-    defaultLocale: "fr",
-    routing: {
-      prefixDefaultLocale: true
-    }
-  },
   vite: {
     plugins: [tailwindcss()]
   }

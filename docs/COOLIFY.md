@@ -5,6 +5,9 @@
 `preview.rmfrt.xyz` sert d'environnement de preview pour valider la v2 sans
 toucher aux domaines publics actuels.
 
+La v2 est temporairement en anglais uniquement : `/` redirige vers `/en/`, et
+le CV integre reste disponible sur `/en/resume/`.
+
 ```txt
 rmfrt-site-preview
   domaine: https://preview.rmfrt.xyz

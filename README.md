@@ -3,6 +3,9 @@
 Minimal Astro/Tailwind version of the personal site, currently targeting
 `https://preview.rmfrt.xyz` for preview before replacing `rmfrt.com`.
 
+The current v2 is English-only for now. `/` redirects to `/en/`; `/en/resume/`
+contains the integrated resume.
+
 ## Commands
 
 ```sh

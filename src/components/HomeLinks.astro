@@ -1,25 +1,19 @@
 ---
 import { isExternalUrl, primaryLinks, secondaryLinks } from "../data/links";
-import type { Locale } from "../data/site";
 
-interface Props {
-  locale: Locale;
-}
-
-const { locale } = Astro.props;
 const links = [...primaryLinks, ...secondaryLinks];
 const itemClass =
   "grid min-h-16 cursor-pointer place-items-center border border-neutral-50/25 bg-neutral-950 px-4 py-3 hover:border-neutral-50";
-const navLabel = locale === "fr" ? "Liens" : "Links";
-const emailAriaLabel = locale === "fr" ? "Envoyer un email à Rémi Forte" : "Email Rémi Forte";
-const externalLabelSuffix = locale === "fr" ? " (ouvre un nouvel onglet)" : " (opens in a new tab)";
+const navLabel = "Links";
+const emailAriaLabel = "Email Rémi Forte";
+const externalLabelSuffix = " (opens in a new tab)";
 
 function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
   if (!link.href || !isExternalUrl(link.href)) {
     return undefined;
   }
 
-  return `${link.label[locale]}${externalLabelSuffix}`;
+  return `${link.label}${externalLabelSuffix}`;
 }
 ---
 
@@ -29,7 +23,7 @@ function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
       links.map((link) =>
         link.kind === "email" ? (
           <button type="button" data-email-link class={itemClass} aria-label={emailAriaLabel}>
-            <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
+            <span class="text-center text-base text-neutral-50">{link.label}</span>
           </button>
         ) : (
           <a
@@ -39,7 +33,7 @@ function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
             class={itemClass}
             aria-label={getLinkAriaLabel(link)}
           >
-            <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
+            <span class="text-center text-base text-neutral-50">{link.label}</span>
           </a>
         )
       )

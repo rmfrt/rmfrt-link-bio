@@ -1,41 +1,39 @@
-import type { Locale } from "./site";
-
 type LinkItem = {
   href?: string;
   kind?: "email";
-  label: Record<Locale, string>;
+  label: string;
   rel?: string;
 };
 
 export const primaryLinks: LinkItem[] = [
   {
     kind: "email",
-    label: { fr: "Email", en: "Email" }
+    label: "Email"
   },
   {
     href: "/en/resume/",
-    label: { fr: "CV", en: "Resume" }
+    label: "Resume"
   },
   {
     href: "https://www.typolyon.fr/",
-    label: { fr: "TypoLyon", en: "TypoLyon" }
+    label: "TypoLyon"
   }
 ];
 
 export const secondaryLinks: LinkItem[] = [
   {
     href: "https://bsky.app/profile/rmfrt.com",
-    label: { fr: "Bluesky", en: "Bluesky" },
+    label: "Bluesky",
     rel: "me"
   },
   {
     href: "https://www.instagram.com/rmfrt/",
-    label: { fr: "Instagram", en: "Instagram" },
+    label: "Instagram",
     rel: "me"
   },
   {
     href: "https://www.linkedin.com/in/rmfrt/",
-    label: { fr: "LinkedIn", en: "LinkedIn" },
+    label: "LinkedIn",
     rel: "me"
   }
 ];

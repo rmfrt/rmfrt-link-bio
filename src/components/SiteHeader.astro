@@ -1,41 +1,5 @@
----
-import { getLanguageLabel } from "../data/i18n";
-import type { Locale } from "../data/site";
-
-interface Props {
-  locale: Locale;
-  activePath: string;
-}
-
-const { locale, activePath } = Astro.props;
-
-const languageLinks =
-  activePath === "/en/resume/"
-    ? [{ locale: "fr" as const, href: "/fr/" }]
-    : [
-        { locale: "fr" as const, href: "/fr/" },
-        { locale: "en" as const, href: "/en/" }
-      ];
----
-
 <header class="mx-auto flex w-full max-w-3xl items-center justify-between px-5 py-6 sm:px-8">
-  <a href={`/${locale}/`} class="text-base text-neutral-50">
+  <a href="/en/" class="text-base text-neutral-50">
     Rémi Forte
   </a>
-  <nav class="flex items-center gap-1" aria-label={locale === "fr" ? "Langues" : "Languages"}>
-    {
-      languageLinks.map((link) => (
-        <a
-          href={link.href}
-          class:list={[
-            "px-2 py-1 text-base text-neutral-50",
-            link.locale === locale ? "underline" : ""
-          ]}
-          aria-current={link.locale === locale ? "page" : undefined}
-        >
-          {getLanguageLabel(link.locale)}
-        </a>
-      ))
-    }
-  </nav>
 </header>

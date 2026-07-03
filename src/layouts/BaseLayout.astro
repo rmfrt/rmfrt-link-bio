@@ -1,27 +1,21 @@
 ---
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
-import { absoluteUrl, siteIdentity, siteNoindex, type Locale } from "../data/site";
-
-type AlternatePaths = Partial<Record<Locale | "x-default", string>>;
+import { absoluteUrl, siteIdentity, siteNoindex } from "../data/site";
 
 interface Props {
-  locale: Locale;
   title: string;
   description: string;
   path: string;
-  alternatePaths?: AlternatePaths;
   image?: string;
   imageAlt?: string;
   refreshPath?: string;
 }
 
 const {
-  locale,
   title,
   description,
   path,
-  alternatePaths = { fr: "/fr/", en: "/en/", "x-default": "/fr/" },
   image = siteIdentity.ogImage,
   imageAlt = siteIdentity.ogImageAlt,
   refreshPath
@@ -29,15 +23,11 @@ const {
 
 const canonical = absoluteUrl(path);
 const imageUrl = absoluteUrl(image);
-const alternates = Object.entries(alternatePaths).filter((entry): entry is [string, string] => Boolean(entry[1]));
-const ogLocale = locale === "fr" ? "fr_FR" : "en_US";
-const alternateOgLocale = locale === "fr" ? "en_US" : "fr_FR";
-const hasAlternateOgLocale = locale === "fr" ? Boolean(alternatePaths.en) : Boolean(alternatePaths.fr);
 const robots = siteNoindex ? "noindex,nofollow,noarchive" : "index,follow";
 ---
 
 <!doctype html>
-<html lang={locale}>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,10 +37,8 @@ const robots = siteNoindex ? "noindex,nofollow,noarchive" : "index,follow";
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#0a0a0a" />
     <link rel="canonical" href={canonical} />
-    {alternates.map(([lang, href]) => <link rel="alternate" hreflang={lang} href={absoluteUrl(href)} />)}
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={ogLocale} />
-    {hasAlternateOgLocale && <meta property="og:locale:alternate" content={alternateOgLocale} />}
+    <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={siteIdentity.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />

@@ -3,15 +3,12 @@ import HomeLinks from "../../components/HomeLinks.astro";
 import SiteHeader from "../../components/SiteHeader.astro";
 import { homeContent } from "../../data/i18n";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const locale = "en";
-const content = homeContent[locale];
 ---
 
-<BaseLayout locale={locale} title={content.title} description={content.description} path="/en/">
-  <SiteHeader locale={locale} activePath="/en/" />
+<BaseLayout title={homeContent.title} description={homeContent.description} path="/en/">
+  <SiteHeader />
   <main class="mx-auto grid w-full max-w-3xl gap-12 px-5 pb-20 pt-12 sm:px-8 sm:pt-20">
     <h1 class="sr-only">Rémi Forte</h1>
-    <HomeLinks locale={locale} />
+    <HomeLinks />
   </main>
 </BaseLayout>
