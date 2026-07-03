@@ -11,7 +11,8 @@ le CV integre reste disponible sur `/resume/`.
 ```txt
 rmfrt-site-preview
   domaine: https://preview.rmfrt.xyz
-  branche: astro-v2
+  branche: preview
+  auto-deploy: GitHub webhook push
   build pack: Dockerfile
   port: 3000
   env:
@@ -82,9 +83,20 @@ GitHub webhook secret: stocke dans Coolify, hors depot
 Le webhook GitHub utilise l'endpoint manuel GitHub de Coolify. Ne pas stocker
 son secret dans le depot. Le webhook doit repondre `200` aux livraisons GitHub.
 Le meme webhook couvre la production et la preview : Coolify filtre ensuite les
-applications par branche (`main` pour prod, `astro-v2` pour preview). Les
+applications par branche (`main` pour prod, `preview` pour preview). Les
 secrets GitHub webhook des deux applications Coolify doivent donc rester
 alignes.
+
+Flux de travail recommande :
+
+```txt
+preview branch -> https://preview.rmfrt.xyz
+main branch    -> https://rmfrt.com
+```
+
+Les changements de design doivent d'abord partir sur `preview`. Apres validation
+sur `preview.rmfrt.xyz`, merger ou fast-forwarder `preview` vers `main` pour la
+mise en production.
 
 Tests effectues le 2026-07-03 :
 
@@ -95,8 +107,9 @@ Coolify deployment from webhook: hg2iv6mwnsd0jbxs4xa1eeyk finished
 Webhook deployment commit: 482d1e0
 Real push deployment: rszjagld4hxf23hwhn6eesy5 finished
 Real push deployment commit: 0431579
-Preview signed push test: g4td5ggspmm36cqhzenp4stx finished
-Preview signed push test commit: a24d1c8
+Preview app branch switch: preview
+Preview deployment after branch switch: yw4u3wc2jfdb6cj7twowpyj8 finished
+Preview deployment commit: 969e52c
 ```
 
 Verification rapide :
