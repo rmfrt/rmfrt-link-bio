@@ -23,8 +23,6 @@ rmfrt-site-prod
   domaine principal: https://rmfrt.com
   domaines additionnels:
     https://www.rmfrt.com
-    https://rmfrt.xyz
-    https://www.rmfrt.xyz
   branche: main
   build pack: Dockerfile
   port: 3000
@@ -33,7 +31,7 @@ rmfrt-site-prod
     PUBLIC_NOINDEX=false
     PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
     PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
-    PUBLIC_UMAMI_DOMAINS=rmfrt.com,rmfrt.xyz
+    PUBLIC_UMAMI_DOMAINS=rmfrt.com,www.rmfrt.com
 ```
 
 ## Production actuelle
@@ -41,29 +39,26 @@ rmfrt-site-prod
 Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-Git main: 1aec781
+Git main: a24d1c8
 Coolify app: rmfrt-site-prod
 Coolify status: running:healthy
-Deployment: ovbsqskv91gmkh7091d6j2xu finished
+Deployment: dbgdzt7gipoitdwd1o4ya13r finished
 ```
 
-La production Coolify repond correctement quand la resolution DNS est forcee
-vers le home-server :
+La production Coolify repond correctement en public :
 
 ```txt
 https://rmfrt.com/
 https://www.rmfrt.com/
 https://rmfrt.com/resume/
-https://rmfrt.xyz/
-https://www.rmfrt.xyz/
-https://rmfrt.xyz/resume/
 ```
 
-DNS public restant a basculer :
+DNS public apres bascule :
 
 ```txt
-rmfrt.com       -> encore Vercel au moment du controle
-rmfrt.xyz       -> encore a finaliser cote Cloudflare au moment du controle
+rmfrt.com         -> 82.67.166.248
+www.rmfrt.com     -> 82.67.166.248
+rmfrt.com NS      -> ada.ns.cloudflare.com, bowen.ns.cloudflare.com
 resume.rmfrt.com -> a rediriger vers https://rmfrt.com/resume/
 ```
 
@@ -72,16 +67,17 @@ resume.rmfrt.com -> a rediriger vers https://rmfrt.com/resume/
 Etat constate le 2026-07-03 :
 
 ```txt
+rmfrt.com
+  registrar: OVH
+  DNS public actuel: Cloudflare
+  apex: 82.67.166.248
+  www: 82.67.166.248
+  nameservers: ada.ns.cloudflare.com, bowen.ns.cloudflare.com
+
 rmfrt.xyz
   DNS: Cloudflare
   apex: pas d'enregistrement A/CNAME public constate
-  www: Cloudflare proxy
-
-rmfrt.com
-  registrar: OVH
-  DNS public actuel: OVH
-  apex: 76.76.21.21 (Vercel)
-  www: 76.76.21.21 (Vercel)
+  www: Cloudflare proxy, hors application de production rmfrt-site-prod
 
 preview.rmfrt.xyz
   A: 82.67.166.248
@@ -90,28 +86,25 @@ analytics.rmfrt.xyz
   A: 82.67.166.248
 ```
 
-Procedure cible :
+Procedure effectuee :
 
 1. Deployer `rmfrt-site-prod` dans Coolify avec les domaines
-   `https://rmfrt.com` et `https://rmfrt.xyz`.
-2. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet,
+   `https://rmfrt.com` et `https://www.rmfrt.com`.
+2. Ajouter `rmfrt.com` dans Cloudflare, renseigner les entrees cible dans
+   Cloudflare, puis remplacer les nameservers OVH par ceux fournis par
+   Cloudflare.
+3. Pendant la propagation, remplacer aussi les anciennes entrees Vercel dans la
+   zone OVH par `82.67.166.248` pour eviter que les caches encore sur OVH
+   servent Vercel.
+4. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet,
    ou detacher le projet si le domaine ne doit plus jamais etre gere par Vercel.
-3. Au moment du DNS, choisir explicitement le gestionnaire DNS de `rmfrt.com` :
-   - soit rester temporairement sur les DNS OVH et remplacer les entrees Vercel
-     par `82.67.166.248` ;
-   - soit ajouter `rmfrt.com` dans Cloudflare, renseigner les entrees cible
-     dans Cloudflare, puis remplacer les nameservers OVH par ceux fournis par
-     Cloudflare.
-4. Dans Cloudflare, pointer `rmfrt.xyz` vers `82.67.166.248`.
 5. Prevoir ensuite la redirection de `https://resume.rmfrt.com` vers
    `https://rmfrt.com/resume/`.
-6. Verifier apres propagation :
+6. Verifier :
 
 ```sh
 curl -I https://rmfrt.com/
 curl -I https://rmfrt.com/resume/
-curl -I https://rmfrt.xyz/
-curl -I https://rmfrt.xyz/resume/
 ```
 
 ## Build
@@ -154,5 +147,5 @@ name: rmfrt.com
 domain: rmfrt.com
 website id: bd1aca48-e028-47bc-98c5-5cea77207e2e
 script: https://analytics.rmfrt.xyz/script.js
-domains: rmfrt.com,rmfrt.xyz
+domains: rmfrt.com,www.rmfrt.com
 ```
