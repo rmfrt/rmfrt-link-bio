@@ -2,7 +2,7 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
-const site = (process.env.PUBLIC_SITE_URL || "https://preview.rmfrt.xyz").replace(/\/+$/, "");
+const site = (process.env.PUBLIC_SITE_URL || "https://rmfrt.com").replace(/\/+$/, "");
 
 export default defineConfig({
   site,

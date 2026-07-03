@@ -19,7 +19,8 @@ rmfrt-site-preview
     PUBLIC_NOINDEX=true
 
 rmfrt-site-prod
-  domaine: https://rmfrt.com
+  domaine principal: https://rmfrt.com
+  domaine additionnel: https://rmfrt.xyz
   branche: main
   build pack: Dockerfile
   port: 3000
@@ -28,7 +29,7 @@ rmfrt-site-prod
     PUBLIC_NOINDEX=false
     PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
     PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
-    PUBLIC_UMAMI_DOMAINS=rmfrt.com
+    PUBLIC_UMAMI_DOMAINS=rmfrt.com,rmfrt.xyz
 ```
 
 ## Production actuelle
@@ -36,6 +37,7 @@ rmfrt-site-prod
 Pendant cette phase, ne pas basculer :
 
 ```txt
+https://rmfrt.xyz
 https://rmfrt.com
 https://resume.rmfrt.com
 ```
@@ -51,6 +53,53 @@ prevoir une redirection :
 
 ```txt
 https://resume.rmfrt.com -> https://rmfrt.com/resume/
+```
+
+## Bascule Vercel / DNS
+
+Etat constate le 2026-07-03 :
+
+```txt
+rmfrt.xyz
+  DNS: Cloudflare
+  apex: pas d'enregistrement A/CNAME public constate
+  www: Cloudflare proxy
+
+rmfrt.com
+  registrar: OVH
+  DNS public actuel: OVH
+  apex: 76.76.21.21 (Vercel)
+  www: 76.76.21.21 (Vercel)
+
+preview.rmfrt.xyz
+  A: 82.67.166.248
+
+analytics.rmfrt.xyz
+  A: 82.67.166.248
+```
+
+Procedure cible :
+
+1. Deployer `rmfrt-site-prod` dans Coolify avec les domaines
+   `https://rmfrt.com` et `https://rmfrt.xyz`.
+2. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet,
+   ou detacher le projet si le domaine ne doit plus jamais etre gere par Vercel.
+3. Au moment du DNS, choisir explicitement le gestionnaire DNS de `rmfrt.com` :
+   - soit rester temporairement sur les DNS OVH et remplacer les entrees Vercel
+     par `82.67.166.248` ;
+   - soit ajouter `rmfrt.com` dans Cloudflare, renseigner les entrees cible
+     dans Cloudflare, puis remplacer les nameservers OVH par ceux fournis par
+     Cloudflare.
+4. Dans Cloudflare, pointer `rmfrt.xyz` vers `82.67.166.248`.
+5. Prevoir ensuite la redirection de `https://resume.rmfrt.com` vers
+   `https://rmfrt.com/resume/`.
+6. Verifier apres propagation :
+
+```sh
+curl -I https://rmfrt.com/
+curl -I https://rmfrt.com/resume/
+curl -I https://rmfrt.xyz/
+curl -I https://rmfrt.xyz/resume/
 ```
 
 ## Build
@@ -93,5 +142,5 @@ name: rmfrt.com
 domain: rmfrt.com
 website id: bd1aca48-e028-47bc-98c5-5cea77207e2e
 script: https://analytics.rmfrt.xyz/script.js
-domains: rmfrt.com
+domains: rmfrt.com,rmfrt.xyz
 ```
