@@ -40,10 +40,10 @@ rmfrt-site-prod
 Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-Commit applicatif deploye: a24d1c8
+Commit applicatif deploye: 0e00f63
 Coolify app: rmfrt-site-prod
 Coolify status: running:healthy
-Deployment: dbgdzt7gipoitdwd1o4ya13r finished
+Deployment: fmppjoeutu4mboez2taunfoi finished
 ```
 
 La production Coolify repond correctement en public :
@@ -97,10 +97,11 @@ Procedure effectuee :
 3. Pendant la propagation, remplacer aussi les anciennes entrees Vercel dans la
    zone OVH par `82.67.166.248` pour eviter que les caches encore sur OVH
    servent Vercel.
-4. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet,
-   ou detacher le projet si le domaine ne doit plus jamais etre gere par Vercel.
-5. Rediriger `https://resume.rmfrt.com` vers `https://rmfrt.com/resume/`.
-6. Verifier :
+4. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet.
+5. Rediriger `https://www.rmfrt.com` vers `https://rmfrt.com/` via Nginx.
+6. Rediriger `https://resume.rmfrt.com` vers `https://rmfrt.com/resume/` via
+   Nginx.
+7. Verifier :
 
 ```sh
 curl -I https://rmfrt.com/
