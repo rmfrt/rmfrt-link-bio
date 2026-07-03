@@ -3,8 +3,8 @@ import { isExternalUrl, primaryLinks, secondaryLinks } from "../data/links";
 
 const links = [...primaryLinks, ...secondaryLinks];
 const itemClass =
-  "grid h-16 cursor-pointer place-items-center border border-neutral-50 px-4 py-3";
-const labelClass = "text-center text-xl text-neutral-50";
+  "group grid h-16 cursor-pointer place-items-center border border-neutral-50 px-4 py-3 transition-colors duration-150 hover:bg-neutral-50 focus-visible:bg-neutral-50";
+const labelClass = "text-center text-xl text-neutral-50 transition-colors duration-150 group-hover:text-neutral-950 group-focus-visible:text-neutral-950";
 const navLabel = "Links";
 const emailAriaLabel = "Email Rémi Forte";
 const externalLabelSuffix = " (opens in a new tab)";
