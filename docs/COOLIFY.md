@@ -208,3 +208,11 @@ website id: bd1aca48-e028-47bc-98c5-5cea77207e2e
 script: https://analytics.rmfrt.xyz/script.js
 domains: rmfrt.com
 ```
+
+Ne pas proteger globalement `analytics.rmfrt.xyz` par HTTP Basic Auth dans
+Coolify : le script public et l'endpoint de collecte doivent rester accessibles
+depuis les sites suivis. Si l'interface d'administration doit etre durcie plus
+tard, le faire sans bloquer `script.js` ni la collecte.
+
+La notice `/privacy/` de `rmfrt.com` couvre l'usage d'Umami : mesure d'audience
+agregee, sans cookies, sans publicite et sans suivi inter-sites.

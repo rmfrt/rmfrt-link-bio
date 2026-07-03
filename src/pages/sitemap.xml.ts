@@ -1,6 +1,6 @@
 import { absoluteUrl } from "../data/site";
 
-const pages = ["/", "/resume/"];
+const pages = ["/", "/resume/", "/privacy/"];
 
 export function GET() {
   const body = `<?xml version="1.0" encoding="UTF-8"?>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeLinks from "../components/HomeLinks.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import { homeContent } from "../data/i18n";
 ---
@@ -12,4 +13,5 @@ import { homeContent } from "../data/i18n";
     <p class="max-w-2xl text-left text-base text-neutral-50">{homeContent.intro}</p>
     <HomeLinks />
   </main>
+  <SiteFooter />
 </BaseLayout>
