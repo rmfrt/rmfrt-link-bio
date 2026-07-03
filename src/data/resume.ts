@@ -70,15 +70,23 @@ export function formatLocationHtml(where: ResumeLocation): string {
   return detail ? `${location} <span class="resume-location-detail">(${escapeHtml(detail)})</span>` : location;
 }
 
-export function formatDateRange(when: ResumeDateRange): string {
+export function formatDateRangeParts(when: ResumeDateRange): {
+  start: { label: string; dateTime: string };
+  end?: { label: string; dateTime: string };
+} {
   const start = formatDate(when.start);
+  const end = when.end ? formatDate(when.end) : undefined;
 
-  if (!when.end) {
-    return start.label;
-  }
+  return { start, end };
+}
 
-  const end = formatDate(when.end);
-  return `${start.label}–${end.label}`;
+export function getResumeSectionId(title: string): string {
+  return `resume-${title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")}`;
 }
 
 export function getDateTime(value: string): string {

@@ -64,6 +64,10 @@ PUBLIC_SITE_URL=https://rmfrt.com
 PUBLIC_NOINDEX=false
 ```
 
+Les variables `PUBLIC_UMAMI_*` doivent egalement etre disponibles au moment du
+build Docker en production. Comme le site est statique et servi ensuite par
+Nginx, une variable ajoutee uniquement au runtime ne modifie pas le HTML genere.
+
 ## Analytics cible
 
 Decision : utiliser `Umami` comme analytics mutualise pour les sites deployes

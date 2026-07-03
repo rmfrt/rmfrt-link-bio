@@ -11,6 +11,16 @@ const links = [...primaryLinks, ...secondaryLinks];
 const itemClass =
   "grid min-h-16 cursor-pointer place-items-center border border-neutral-50/25 bg-neutral-950 px-4 py-3 hover:border-neutral-50";
 const navLabel = locale === "fr" ? "Liens" : "Links";
+const emailAriaLabel = locale === "fr" ? "Envoyer un email à Rémi Forte" : "Email Rémi Forte";
+const externalLabelSuffix = locale === "fr" ? " (ouvre un nouvel onglet)" : " (opens in a new tab)";
+
+function getLinkAriaLabel(link: (typeof links)[number]): string | undefined {
+  if (!link.href || !isExternalUrl(link.href)) {
+    return undefined;
+  }
+
+  return `${link.label[locale]}${externalLabelSuffix}`;
+}
 ---
 
 <nav aria-label={navLabel}>
@@ -18,7 +28,7 @@ const navLabel = locale === "fr" ? "Liens" : "Links";
     {
       links.map((link) =>
         link.kind === "email" ? (
-          <button type="button" data-email-link class={itemClass}>
+          <button type="button" data-email-link class={itemClass} aria-label={emailAriaLabel}>
             <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
           </button>
         ) : (
@@ -27,6 +37,7 @@ const navLabel = locale === "fr" ? "Liens" : "Links";
             target={link.href && isExternalUrl(link.href) ? "_blank" : undefined}
             rel={link.href && isExternalUrl(link.href) ? ["noopener noreferrer", link.rel].filter(Boolean).join(" ") : undefined}
             class={itemClass}
+            aria-label={getLinkAriaLabel(link)}
           >
             <span class="text-center text-base text-neutral-50">{link.label[locale]}</span>
           </a>

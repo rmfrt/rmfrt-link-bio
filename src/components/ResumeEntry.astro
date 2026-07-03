@@ -1,6 +1,6 @@
 ---
 import type { ResumeItem } from "../data/resume";
-import { formatDateRange, formatLocationHtml } from "../data/resume";
+import { formatDateRangeParts, formatLocationHtml } from "../data/resume";
 import { renderInlineMarkdown } from "../data/markdown";
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const { item } = Astro.props;
+const dateRange = formatDateRangeParts(item.when);
 ---
 
 <article class="grid gap-2 border-t border-neutral-50/25 py-5 first:border-t-0 sm:grid-cols-[minmax(0,1fr)_9rem] sm:gap-5">
@@ -20,5 +21,8 @@ const { item } = Astro.props;
       )
     }
   </div>
-  <p class="text-base text-neutral-50 sm:text-right">{formatDateRange(item.when)}</p>
+  <p class="text-base text-neutral-50 sm:text-right">
+    <time datetime={dateRange.start.dateTime}>{dateRange.start.label}</time>
+    {dateRange.end && <><span aria-hidden="true">–</span><time datetime={dateRange.end.dateTime}>{dateRange.end.label}</time></>}
+  </p>
 </article>

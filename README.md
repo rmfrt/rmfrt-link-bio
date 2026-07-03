@@ -30,3 +30,18 @@ PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
 PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
 PUBLIC_UMAMI_DOMAINS=rmfrt.com
 ```
+
+The Docker build must receive these values as build arguments because the site
+is generated as static HTML before Nginx serves it.
+
+## Metadata assets
+
+The favicon and Open Graph image are intentionally minimal black placeholders:
+
+```txt
+public/favicon.ico
+public/favicon.svg
+public/apple-touch-icon.png
+public/og.png
+public/og.svg
+```

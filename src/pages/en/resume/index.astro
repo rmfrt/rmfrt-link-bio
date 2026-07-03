@@ -2,7 +2,7 @@
 import ResumeEntry from "../../../components/ResumeEntry.astro";
 import SiteHeader from "../../../components/SiteHeader.astro";
 import { resumeContent } from "../../../data/i18n";
-import { resumeSections } from "../../../data/resume";
+import { getResumeSectionId, resumeSections } from "../../../data/resume";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
 
@@ -24,9 +24,9 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
     <div class="mt-16 grid gap-16">
       {
         resumeSections.map((section) => (
-          <section aria-labelledby={`resume-${section.title.toLowerCase().replaceAll(" ", "-")}`}>
+          <section aria-labelledby={getResumeSectionId(section.title)}>
             <h2
-              id={`resume-${section.title.toLowerCase().replaceAll(" ", "-")}`}
+              id={getResumeSectionId(section.title)}
               class="mb-2 text-base text-neutral-50"
             >
               {section.title}
