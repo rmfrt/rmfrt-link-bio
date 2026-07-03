@@ -1,38 +1,20 @@
 ---
-import ResumeEntry from "../../../components/ResumeEntry.astro";
-import SiteHeader from "../../../components/SiteHeader.astro";
-import { resumeContent } from "../../../data/i18n";
-import { getResumeSectionId, resumeSections } from "../../../data/resume";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout
-  title={resumeContent.title}
-  description={resumeContent.description}
-  path="/en/resume/"
+  title="Rémi Forte — Resume"
+  description="Professional resume for Rémi Forte."
+  path="/resume/"
+  refreshPath="/resume/"
 >
-  <SiteHeader />
-  <main class="mx-auto w-full max-w-4xl px-5 pb-24 pt-10 sm:px-8 sm:pt-16">
-    <section class="max-w-3xl">
-      <p class="text-base text-neutral-50">{resumeContent.eyebrow}</p>
-      <h1 class="mt-5 text-base text-neutral-50">{resumeContent.heading}</h1>
-      <p class="mt-6 max-w-2xl text-base text-neutral-50">{resumeContent.intro}</p>
-    </section>
-
-    <div class="mt-16 grid gap-16">
-      {
-        resumeSections.map((section) => (
-          <section aria-labelledby={getResumeSectionId(section.title)}>
-            <h2
-              id={getResumeSectionId(section.title)}
-              class="mb-2 text-base text-neutral-50"
-            >
-              {section.title}
-            </h2>
-            <div>{section.items.map((item) => <ResumeEntry item={item} />)}</div>
-          </section>
-        ))
-      }
+  <main class="grid min-h-dvh place-items-center px-5 py-16 text-center">
+    <div class="max-w-sm">
+      <h1 class="text-base text-neutral-50">Rémi Forte — Resume</h1>
+      <p class="mt-4 text-base text-neutral-50">Redirecting.</p>
+      <p class="mt-4">
+        <a class="text-base text-neutral-50 underline decoration-neutral-50" href="/resume/">Continue to /resume/</a>
+      </p>
     </div>
   </main>
 </BaseLayout>

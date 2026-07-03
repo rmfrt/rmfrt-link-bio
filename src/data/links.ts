@@ -11,7 +11,7 @@ export const primaryLinks: LinkItem[] = [
     label: "Email"
   },
   {
-    href: "/en/resume/",
+    href: "/resume/",
     label: "Resume"
   },
   {

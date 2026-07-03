@@ -5,8 +5,8 @@
 `preview.rmfrt.xyz` sert d'environnement de preview pour valider la v2 sans
 toucher aux domaines publics actuels.
 
-La v2 est temporairement en anglais uniquement : `/` redirige vers `/en/`, et
-le CV integre reste disponible sur `/en/resume/`.
+La v2 est temporairement en anglais uniquement : `/` est la page d'accueil, et
+le CV integre reste disponible sur `/resume/`.
 
 ```txt
 rmfrt-site-preview
@@ -43,14 +43,14 @@ https://resume.rmfrt.com
 Le CV est integre dans la nouvelle route :
 
 ```txt
-https://preview.rmfrt.xyz/en/resume/
+https://preview.rmfrt.xyz/resume/
 ```
 
 Quand la version sera stabilisee, activer explicitement `rmfrt-site-prod` et
 prevoir une redirection :
 
 ```txt
-https://resume.rmfrt.com -> https://rmfrt.com/en/resume/
+https://resume.rmfrt.com -> https://rmfrt.com/resume/
 ```
 
 ## Build
