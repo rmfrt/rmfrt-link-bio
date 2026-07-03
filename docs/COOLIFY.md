@@ -21,7 +21,10 @@ rmfrt-site-preview
 rmfrt-site-prod
   uuid: ztnx9pvmsyhsrnaguodz7yfe
   domaine principal: https://rmfrt.com
-  domaine additionnel: https://rmfrt.xyz
+  domaines additionnels:
+    https://www.rmfrt.com
+    https://rmfrt.xyz
+    https://www.rmfrt.xyz
   branche: main
   build pack: Dockerfile
   port: 3000
@@ -38,10 +41,10 @@ rmfrt-site-prod
 Etat apres mise en production Coolify du 2026-07-03 :
 
 ```txt
-Git main: 09aa767
+Git main: 1aec781
 Coolify app: rmfrt-site-prod
 Coolify status: running:healthy
-Deployment: bii278d31cuxg4m22lfgwp7l finished
+Deployment: ovbsqskv91gmkh7091d6j2xu finished
 ```
 
 La production Coolify repond correctement quand la resolution DNS est forcee
@@ -49,8 +52,10 @@ vers le home-server :
 
 ```txt
 https://rmfrt.com/
+https://www.rmfrt.com/
 https://rmfrt.com/resume/
 https://rmfrt.xyz/
+https://www.rmfrt.xyz/
 https://rmfrt.xyz/resume/
 ```
 
