@@ -1,8 +1,8 @@
 # rmfrt-site
 
 Minimal Astro/Tailwind version of the personal site. Production targets
-`https://rmfrt.com` as the canonical domain, with `https://www.rmfrt.com` as an
-additional public domain.
+`https://rmfrt.com` as the canonical domain. `https://www.rmfrt.com` and
+`https://resume.rmfrt.com` are redirect aliases.
 
 The current v2 is English-only for now. `/` is the home page; `/resume/`
 contains the integrated resume.
@@ -32,7 +32,7 @@ variables are set and `PUBLIC_NOINDEX=false`.
 ```txt
 PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
 PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
-PUBLIC_UMAMI_DOMAINS=rmfrt.com,www.rmfrt.com
+PUBLIC_UMAMI_DOMAINS=rmfrt.com
 ```
 
 The Docker build must receive these values as build arguments because the site

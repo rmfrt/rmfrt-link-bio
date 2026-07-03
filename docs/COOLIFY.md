@@ -21,8 +21,9 @@ rmfrt-site-preview
 rmfrt-site-prod
   uuid: ztnx9pvmsyhsrnaguodz7yfe
   domaine principal: https://rmfrt.com
-  domaines additionnels:
+  alias de redirection:
     https://www.rmfrt.com
+    https://resume.rmfrt.com
   branche: main
   build pack: Dockerfile
   port: 3000
@@ -31,7 +32,7 @@ rmfrt-site-prod
     PUBLIC_NOINDEX=false
     PUBLIC_UMAMI_SCRIPT_URL=https://analytics.rmfrt.xyz/script.js
     PUBLIC_UMAMI_WEBSITE_ID=bd1aca48-e028-47bc-98c5-5cea77207e2e
-    PUBLIC_UMAMI_DOMAINS=rmfrt.com,www.rmfrt.com
+    PUBLIC_UMAMI_DOMAINS=rmfrt.com
 ```
 
 ## Production actuelle
@@ -49,7 +50,6 @@ La production Coolify repond correctement en public :
 
 ```txt
 https://rmfrt.com/
-https://www.rmfrt.com/
 https://rmfrt.com/resume/
 ```
 
@@ -57,9 +57,9 @@ DNS public apres bascule :
 
 ```txt
 rmfrt.com         -> 82.67.166.248
-www.rmfrt.com     -> 82.67.166.248
+www.rmfrt.com     -> 82.67.166.248, redirection 301 vers https://rmfrt.com/*
+resume.rmfrt.com  -> 82.67.166.248, redirection 301 vers https://rmfrt.com/resume/
 rmfrt.com NS      -> ada.ns.cloudflare.com, bowen.ns.cloudflare.com
-resume.rmfrt.com -> a rediriger vers https://rmfrt.com/resume/
 ```
 
 ## Bascule Vercel / DNS
@@ -88,8 +88,9 @@ analytics.rmfrt.xyz
 
 Procedure effectuee :
 
-1. Deployer `rmfrt-site-prod` dans Coolify avec les domaines
-   `https://rmfrt.com` et `https://www.rmfrt.com`.
+1. Deployer `rmfrt-site-prod` dans Coolify avec le domaine canonique
+   `https://rmfrt.com` et les alias `https://www.rmfrt.com`,
+   `https://resume.rmfrt.com`.
 2. Ajouter `rmfrt.com` dans Cloudflare, renseigner les entrees cible dans
    Cloudflare, puis remplacer les nameservers OVH par ceux fournis par
    Cloudflare.
@@ -98,13 +99,14 @@ Procedure effectuee :
    servent Vercel.
 4. Dans Vercel, retirer `rmfrt.com` et `www.rmfrt.com` des domaines du projet,
    ou detacher le projet si le domaine ne doit plus jamais etre gere par Vercel.
-5. Prevoir ensuite la redirection de `https://resume.rmfrt.com` vers
-   `https://rmfrt.com/resume/`.
+5. Rediriger `https://resume.rmfrt.com` vers `https://rmfrt.com/resume/`.
 6. Verifier :
 
 ```sh
 curl -I https://rmfrt.com/
+curl -I https://www.rmfrt.com/
 curl -I https://rmfrt.com/resume/
+curl -I https://resume.rmfrt.com/
 ```
 
 ## Build
@@ -147,5 +149,5 @@ name: rmfrt.com
 domain: rmfrt.com
 website id: bd1aca48-e028-47bc-98c5-5cea77207e2e
 script: https://analytics.rmfrt.xyz/script.js
-domains: rmfrt.com,www.rmfrt.com
+domains: rmfrt.com
 ```
