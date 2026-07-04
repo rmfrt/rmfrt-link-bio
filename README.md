@@ -1,4 +1,4 @@
-# rmfrt-site
+# rmfrt.com
 
 Minimal Astro/Tailwind version of the personal site. Production targets
 `https://rmfrt.com` as the canonical domain. `https://www.rmfrt.com` and

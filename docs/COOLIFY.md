@@ -9,8 +9,11 @@ La v2 est temporairement en anglais uniquement : `/` est la page d'accueil, et
 le CV integre reste disponible sur `/resume/`.
 
 ```txt
+GitHub repo: rmfrt/rmfrt-com
+
 rmfrt-site-preview
   domaine: https://preview.rmfrt.xyz
+  depot: rmfrt/rmfrt-com
   branche: preview
   auto-deploy: GitHub webhook push
   HTTP Basic Auth: actif via labels Traefik Coolify
@@ -23,6 +26,7 @@ rmfrt-site-preview
 rmfrt-site-prod
   uuid: ztnx9pvmsyhsrnaguodz7yfe
   domaine principal: https://rmfrt.com
+  depot: rmfrt/rmfrt-com
   alias de redirection:
     https://www.rmfrt.com
     https://resume.rmfrt.com
@@ -74,6 +78,7 @@ rmfrt.com NS      -> ada.ns.cloudflare.com, bowen.ns.cloudflare.com
 Configuration validee le 2026-07-03 :
 
 ```txt
+GitHub repository: rmfrt/rmfrt-com
 Coolify auto-deploy: enabled
 GitHub webhook: active
 GitHub webhook events: push
@@ -127,8 +132,12 @@ Preview deployment commit: 969e52c
 Verification rapide :
 
 ```sh
-gh api repos/rmfrt/rmfrt-link-bio/hooks --jq '.[] | {id, active, events, last_response}'
+gh api repos/rmfrt/rmfrt-com/hooks --jq '.[] | {id, active, events, last_response}'
 ```
+
+Il n'y a pas de GitHub Actions dans ce depot. Le CI/CD est volontairement
+minimal : `preview` et `main` declenchent le meme webhook GitHub, puis Coolify
+filtre les applications par branche.
 
 ## Bascule Vercel / DNS
 
